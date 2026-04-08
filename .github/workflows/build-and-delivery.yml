@@ -19,15 +19,7 @@ jobs:
         with:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Debug workspace
-        run: |
-          pwd
-          ls -la
-          echo "---- requirements ----"
-          ls -la requirements.txt || true
-          echo "---- dockerignore ----"
-          ls -la .dockerignore || true
-          cat .dockerignore || true
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
